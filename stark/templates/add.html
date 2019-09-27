@@ -1,0 +1,43 @@
+{% extends 'base.html' %}
+{% block html %}
+<div class="container">
+    <h3>添加{{ model_name }}</h3>
+    <div class="row">
+        <div class="col-lg-8  col-lg-offset-2">
+            <form action="" method="post" novalidate>
+            {% csrf_token %}
+            {% for field in form  %}
+                <p style="position:relative">{{ field.label }} {{ field }}
+                <span>{{ field.errors.0 }}</span>
+                {% if field.opt %}
+                <a href=""  onclick="foo('{{ field.url }}')" style="position: absolute;right: -20px;bottom: 5px;font-size:25px" >+</a>
+                {% endif %}
+                </p>
+
+            {% endfor %}
+            <button class="btn btn-primary"> 提交</button>
+            </form>
+
+        </div>
+    </div>
+</div>
+<script src="/static/jquery-3.3.1.js"></script>
+<script src="/static/bootstrap/js/bootstrap.min.js"></script>
+<script>
+    $('input,select').addClass('form-control');
+    {#$('select').addClass('form-control')#}
+    function foo(url) {
+        window.open(url,"","width=800,height=400,left=100,top=100")
+    }
+    function bar(pk,text,name) {
+        console.log(pk,text,name);
+        var val = document.createElement('option');
+        $(val).text(text);
+        $(val).value=pk;
+        $(val).attr('selected','selected');
+        $('#'+name).append(val)
+
+    }
+</script>
+
+{% endblock %}

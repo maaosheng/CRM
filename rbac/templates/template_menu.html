@@ -1,0 +1,9 @@
+
+
+ {% for foo in title %}
+            {% if current_path == foo.0%}
+                <div class="f1" ><a href="{{ foo.0 }}" style="color: red">{{ foo.1 }}</a></div>
+            {% else %}
+                <div class="f1" ><a href="{{ foo.0}}">{{ foo.1 }}</a></div>
+            {% endif %}
+        {% endfor %}

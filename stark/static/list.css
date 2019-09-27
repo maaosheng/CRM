@@ -1,0 +1,16 @@
+ *{
+            margin: 0;
+        }
+        .filter{
+            text-decoration: none;
+            color: gray;
+        }
+        .field_header{
+            margin-left:60px;
+        }
+        .field_body{
+            margin-left:40px
+        }
+        .active{
+            color:red!important;
+        }
